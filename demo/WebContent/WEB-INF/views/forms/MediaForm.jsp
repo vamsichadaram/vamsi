@@ -1,6 +1,6 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<form:form action="/srustiapp/media/save" enctype="multipart/form-data"
-	modelAttribute="mediaForm" method="POST">
+<form:form action="/demo/media/save" enctype="multipart/form-data"
+	modelattribute="mediaForm" method="POST">
 	<table>
 		<tr>
 			<td>name</td>
