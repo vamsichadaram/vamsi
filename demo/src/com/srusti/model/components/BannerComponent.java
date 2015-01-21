@@ -26,11 +26,11 @@ public class BannerComponent
 	private String name;
 	@Column
 	private String decription;
-	
 	@Column
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinTable(name="banner_media",joinColumns={@JoinColumn(name="bid")},inverseJoinColumns={@JoinColumn(name="mid")})
 	private List<MediaModel> media;
+	
 	public int getId() {
 		return id;
 	}

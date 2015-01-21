@@ -5,11 +5,13 @@ import java.util.List;
 
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.srusti.dao.BannerDao;
 import com.srusti.model.components.BannerComponent;
 
 @Repository("bannerDao")
+@Transactional
 public class BannerDaoImpl implements BannerDao
 {
 	private SessionFactory session;
