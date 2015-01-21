@@ -6,13 +6,12 @@ import java.io.IOException;
 import javax.servlet.ServletContext;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.multipart.MultipartFile;
-
 import com.srusti.controller.constants.SampleCons;
 import com.srusti.dto.MediaForm;
 import com.srusti.model.MediaModel;
@@ -22,6 +21,7 @@ import com.srusti.service.MediaService;
 @RequestMapping("/media")
 public class CMSMediaController 
 {
+	private static final Logger LOG= Logger.getLogger(CMSMediaController.class);
 	@Autowired
 	private MediaService service;
 	@Autowired
@@ -44,22 +44,23 @@ public class CMSMediaController
 			model1.setAlt(media.getAlt());
 			model1.setDecription(media.getDecription());
 			model1.setTitle(media.getTitle());
-			model1.setPath("sample");
 			if(mediaForm.getFile()!=null)
 			{
 				fileName= mediaForm.getFile().getOriginalFilename();
+				LOG.info("uploading....."+fileName);
 				File filedup= new File(context.getRealPath(File.separator)+SampleCons.MEDIA_PATH+fileName);
 				FileUtils.writeByteArrayToFile(filedup, mediaForm.getFile().getBytes());
+				model1.setPath(SampleCons.MEDIA_PATH+fileName);
 				service.save(model1);
 			}
 			else
 			{
-				System.out.println("unable to upload.....");
+				LOG.info("check the image.....");
 			}
 		}
 		 else
 		 {
-			 System.out.println("not done");
+			 LOG.info("Not done.....");
 		 }
 	}
 }
