@@ -6,13 +6,18 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+//Entity annotation used identify pojo class as a persistence(which can be saved in database) object
 @Entity
+// It will create a table with the mentioned name
 @Table(name="customers")
 public class CustomerModel 
 {
+	//@Id is the primary key in a table
 	@Id
+	//it will generate at time of saving an object
 	@GeneratedValue
 	private int id;
+	//@Column will define column with the variable name
 	@Column
 	private String name;
 	@Column
