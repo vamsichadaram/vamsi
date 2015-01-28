@@ -8,16 +8,22 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
 	<!-- this tag is used activate annotations -->
+	<!-- spring annotations like @Controller,@Repository,@Service etc -->
 	<context:annotation-config />
 
 	<!-- To find annotation classes in a package -->
+	<!-- It will find annotated java classes under the below mentioned package(com.srusti) -->
 	<context:component-scan base-package="com.srusti" />
-
-	<!-- Resource mapping like js,css,images files -->
 	<mvc:annotation-driven />
+	
+	<!-- Resource mapping like js,css,images files -->
+	<!-- it will map the resource files js css images etc with the following root structure -->
 	<mvc:resources mapping="/resources/**" location="resources/srusti/" />
+	
+	
 	<mvc:view-controller path="/home" view-name="home" />
 
+	
 	<!-- To set view pages location with prefix and suffix -->
 	<beans:bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -71,7 +77,7 @@
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 
-
+	<!-- it used to upload a file -->
 	<bean id="multipartResolver"    class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
         <property name="maxUploadSize" value="1000000" />
     </bean>

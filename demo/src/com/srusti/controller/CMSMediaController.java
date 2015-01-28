@@ -48,19 +48,20 @@ public class CMSMediaController
 			{
 				fileName= mediaForm.getFile().getOriginalFilename();
 				LOG.info("uploading....."+fileName);
+				
 				File filedup= new File(context.getRealPath(File.separator)+SampleCons.MEDIA_PATH+fileName);
-				FileUtils.writeByteArrayToFile(filedup, mediaForm.getFile().getBytes());
-				model1.setPath(SampleCons.MEDIA_PATH+fileName);
-				service.save(model1);
+				if(filedup.isDirectory())
+				{
+					FileUtils.writeByteArrayToFile(filedup, mediaForm.getFile().getBytes());
+				}
+				if(filedup.exists())
+				{
+					model1.setPath(SampleCons.MEDIA_PATH+fileName);
+					service.save(model1);
+				}else LOG.info("cannot upload file: "+fileName);
 			}
-			else
-			{
-				LOG.info("check the image.....");
-			}
-		}
-		 else
-		 {
-			 LOG.info("Not done.....");
-		 }
+			else LOG.info("check the image.....");
+			
+		}else LOG.info("Not done.....");
 	}
 }
