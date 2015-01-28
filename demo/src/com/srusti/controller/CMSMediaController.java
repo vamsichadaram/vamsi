@@ -12,9 +12,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 import com.srusti.controller.constants.SampleCons;
 import com.srusti.dto.MediaForm;
-import com.srusti.model.MediaModel;
+import com.srusti.model.components.MediaComponent;
 import com.srusti.service.MediaService;
 
 @Controller
@@ -39,7 +40,7 @@ public class CMSMediaController
 		String fileName= null;
 		 if (mediaForm instanceof MediaForm) {
 			MediaForm media = (MediaForm) mediaForm;
-			MediaModel model1= new MediaModel();
+			MediaComponent model1= new MediaComponent();
 			model1.setName(media.getName());
 			model1.setAlt(media.getAlt());
 			model1.setDecription(media.getDecription());

@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.srusti.dao.MediaDao;
-import com.srusti.model.MediaModel;
+import com.srusti.model.components.MediaComponent;
 import com.srusti.service.MediaService;
 
 @Service
@@ -14,12 +14,12 @@ public class MediaServiceImpl implements MediaService
 {
 	@Autowired
 	private MediaDao dao;
-	public void save(MediaModel media)
+	public void save(MediaComponent media)
 	{
 		dao.save(media);
 	}
 
-	public MediaModel get(int id) 
+	public MediaComponent get(int id) 
 	{
 		return dao.get(id);
 	}
@@ -29,7 +29,7 @@ public class MediaServiceImpl implements MediaService
 		dao.remove(id);
 	}
 
-	public List<MediaModel> list() 
+	public List<MediaComponent> list() 
 	{
 		return dao.list();
 	}

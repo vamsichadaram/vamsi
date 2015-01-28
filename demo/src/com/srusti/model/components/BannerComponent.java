@@ -12,8 +12,6 @@ import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.srusti.model.MediaModel;
-
 @Entity
 @Table(name="banners")
 public class BannerComponent 
@@ -29,7 +27,7 @@ public class BannerComponent
 	@Column
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinTable(name="banner_media",joinColumns={@JoinColumn(name="bid")},inverseJoinColumns={@JoinColumn(name="mid")})
-	private List<MediaModel> media;
+	private List<MediaComponent> media;
 	
 	public int getId() {
 		return id;
@@ -49,10 +47,10 @@ public class BannerComponent
 	public void setDecription(String decription) {
 		this.decription = decription;
 	}
-	public List<MediaModel> getMedia() {
+	public List<MediaComponent> getMedia() {
 		return media;
 	}
-	public void setMedia(List<MediaModel> media) {
+	public void setMedia(List<MediaComponent> media) {
 		this.media = media;
 	}
 	@Override

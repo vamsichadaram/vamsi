@@ -1,4 +1,4 @@
-package com.srusti.model;
+package com.srusti.model.components;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,7 +8,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="media")
-public class MediaModel 
+public class MediaComponent 
 {
 	@Id
 	@GeneratedValue
