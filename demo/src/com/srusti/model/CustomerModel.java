@@ -19,7 +19,15 @@ public class CustomerModel
 	private String contact;
 	@Column
 	private String email;
+	@Column
+	private boolean active;
 	
+	public boolean isActive() {
+		return active;
+	}
+	public void setActive(boolean active) {
+		this.active = active;
+	}
 	public int getId() {
 		return id;
 	}
@@ -44,10 +52,9 @@ public class CustomerModel
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
 	@Override
 	public String toString() {
-		return "Customer [id=" + id + ", name=" + name + ", contact=" + contact
-				+ ", email=" + email + "]";
+		return "CustomerModel [id=" + id + ", name=" + name + ", contact="
+				+ contact + ", email=" + email + ", active=" + active + "]";
 	}
 }
