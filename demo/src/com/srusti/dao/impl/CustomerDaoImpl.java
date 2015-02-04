@@ -4,15 +4,21 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.srusti.dao.CustomerDao;
 import com.srusti.model.CustomerModel;
+import java.util.*;
 
-@Repository("customerDao")
+@Repository
+@Transactional
 public class CustomerDaoImpl implements CustomerDao
 {
 	private static final Logger LOG= Logger.getLogger(CustomerDaoImpl.class);
+	
+	@Autowired
 	private SessionFactory session;
 	
 	public void save(CustomerModel customer) 
@@ -30,7 +36,12 @@ public class CustomerDaoImpl implements CustomerDao
 	@SuppressWarnings("unchecked")
 	public List<CustomerModel> getCustomersList() 
 	{
-		return session.getCurrentSession().createQuery("From Customer").list();
+		List<CustomerModel> customers= session.getCurrentSession().createQuery("From Customer").list();
+		if(customers.size()>0)
+		{
+			return customers;
+		}
+		else return Collections.EMPTY_LIST;
 	}
 
 	public void remove(int id) 
