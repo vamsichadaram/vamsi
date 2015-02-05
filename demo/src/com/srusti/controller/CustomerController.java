@@ -41,8 +41,9 @@ public class CustomerController
 		service.remove(id);
 	}
 	@RequestMapping("/list")
-	public List<CustomerModel> list()
+	public String list(Model model)
 	{
-		return service.getCustomersList();
+		model.addAttribute("customers",service.getCustomersList());
+		return "customersList";
 	}
 }

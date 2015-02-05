@@ -36,7 +36,7 @@ public class CustomerDaoImpl implements CustomerDao
 	@SuppressWarnings("unchecked")
 	public List<CustomerModel> getCustomersList() 
 	{
-		List<CustomerModel> customers= session.getCurrentSession().createQuery("From Customer").list();
+		List<CustomerModel> customers= session.getCurrentSession().createQuery("From CustomerModel").list();
 		if(customers.size()>0)
 		{
 			return customers;

@@ -16,5 +16,8 @@
 		<put-attribute name="title" value="Contact Manager" />
 		<put-attribute name="body" value="/WEB-INF/views/body.jsp" />
 	</definition>
-
+	<definition name="customersList" extends="base.definition">
+		<put-attribute name="title" value="customers list" />
+		<put-attribute name="body" value="/WEB-INF/views/customersList.jsp" />
+	</definition>
 </tiles-definitions>
