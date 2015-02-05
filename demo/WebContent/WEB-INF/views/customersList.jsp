@@ -4,13 +4,16 @@
   
 <html>  
 <head>  
-<title>All Customers</title>  
+<title>All Customers</title>
+<style type="text/css">
+	
+</style>  
 </head>  
 <body>  
 <h1>  
 List Employees</h1>  
 <h3>  
-<a href="http://add.html/">Add More Employee</a></h3>  
+<a href="/demo/customer/form">Add More Employee</a></h3>  
 <c:if test="${!empty customers}">  
  
 <table align="left" border="1"> 

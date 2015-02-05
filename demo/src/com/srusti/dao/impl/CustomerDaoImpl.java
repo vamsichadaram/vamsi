@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.srusti.dao.CustomerDao;
 import com.srusti.model.CustomerModel;
+
 import java.util.*;
 
 @Repository
@@ -43,11 +44,24 @@ public class CustomerDaoImpl implements CustomerDao
 		}
 		else return Collections.EMPTY_LIST;
 	}
-
+	
 	public void remove(int id) 
 	{
 		CustomerModel customer=(CustomerModel) session.getCurrentSession().get(CustomerModel.class,id);
 		session.getCurrentSession().delete(customer);
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<CustomerModel> getActiveCustomersList(boolean status) 
+	{
+		String hql="from CustomerModel where active=:status";
+		List<CustomerModel> customers= session.getCurrentSession().createQuery(hql).setParameter("status", status).list();
+		if(customers.size()>0)
+		{
+			return customers;
+		}
+		return Collections.EMPTY_LIST;
 	}
 
 }

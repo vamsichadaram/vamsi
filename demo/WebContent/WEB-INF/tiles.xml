@@ -20,4 +20,8 @@
 		<put-attribute name="title" value="customers list" />
 		<put-attribute name="body" value="/WEB-INF/views/customersList.jsp" />
 	</definition>
+	<definition name="customerForm" extends="base.definition">
+		<put-attribute name="title" value="add customer" />
+		<put-attribute name="body" value="/WEB-INF/views/customerForm.jsp" />
+	</definition>
 </tiles-definitions>

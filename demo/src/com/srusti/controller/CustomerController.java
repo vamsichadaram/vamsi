@@ -22,7 +22,7 @@ public class CustomerController
 	@RequestMapping("/form")
 	public String cform(Model model)
 	{
-		return "forms/customerForm";
+		return "customerForm";
 	}
 	
 	@RequestMapping("/get")
