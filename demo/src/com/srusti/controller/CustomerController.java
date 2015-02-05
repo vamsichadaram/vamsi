@@ -1,7 +1,5 @@
 package com.srusti.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -31,9 +29,10 @@ public class CustomerController
 		return service.getCustomer(id);
 	}
 	@RequestMapping(value="/save", method=RequestMethod.POST)
-	public void save(CustomerModel customer)
+	public String save(CustomerModel customer)
 	{
 		service.save(customer);
+		return "redirect:list";
 	}
 	@RequestMapping("/remove")
 	public void remove(@RequestParam("id") int id)
@@ -42,6 +41,18 @@ public class CustomerController
 	}
 	@RequestMapping("/list")
 	public String list(Model model)
+	{
+		model.addAttribute("customers",service.getCustomersList());
+		return "customersList";
+	}
+	@RequestMapping("/active")
+	public String activelist(Model model)
+	{
+		model.addAttribute("customers",service.getCustomersList());
+		return "customersList";
+	}
+	@RequestMapping("/inactive")
+	public String inActivelist(Model model)
 	{
 		model.addAttribute("customers",service.getCustomersList());
 		return "customersList";

@@ -53,10 +53,22 @@ public class CustomerDaoImpl implements CustomerDao
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<CustomerModel> getActiveCustomersList(boolean status) 
+	public List<CustomerModel> getActiveCustomersList() 
 	{
 		String hql="from CustomerModel where active=:status";
-		List<CustomerModel> customers= session.getCurrentSession().createQuery(hql).setParameter("status", status).list();
+		List<CustomerModel> customers= session.getCurrentSession().createQuery(hql).setParameter("status", true).list();
+		if(customers.size()>0)
+		{
+			return customers;
+		}
+		return Collections.EMPTY_LIST;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<CustomerModel> getInactiveCustomersList() {
+		String hql="from CustomerModel where active=:status";
+		List<CustomerModel> customers= session.getCurrentSession().createQuery(hql).setParameter("status", false).list();
 		if(customers.size()>0)
 		{
 			return customers;

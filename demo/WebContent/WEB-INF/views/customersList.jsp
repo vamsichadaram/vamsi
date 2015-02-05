@@ -9,37 +9,52 @@
 	
 </style>  
 </head>  
-<body>  
-<h1>  
-List Employees</h1>  
-<h3>  
-<a href="/demo/customer/form">Add More Employee</a></h3>  
-<c:if test="${!empty customers}">  
- 
-<table align="left" border="1"> 
-<tbody>  
-<tr> 
-    <th>customer ID</th> 
-    <th>customer Name</th> 
-    <th>customer email</th> 
-    <th>customer contact</th> 
-    <th>status</th>
-    </tr>  
-<c:forEach items="${customers}" var="customer"> 
-<tr> 
-     <td><c:out value="${customer.id}"></c:out>
- </td> 
-     <td><c:out value="${customer.name}"></c:out> 
-</td> 
-     <td><c:out value="${customer.email}"></c:out> 
-</td>
-      <td><c:out value="${customer.contact}"></c:out> 
-</td> 
-     <td><c:out value="${customer.active}"></c:out></td> 
-  </tr>  
-</c:forEach>
-</tbody>
- </table>  
-</c:if>  
+<body>
+<diV id="wrapper">
+ <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1>  
+						List Customers</h1>  
+						<h3>  
+						<a href="/demo/customer/form">Add More Customers</a></h3>  
+						<c:if test="${!empty customers}">  
+						 
+						<table align="left" border="1"> 
+						<tbody>  
+						<tr> 
+						    <th>customer ID</th> 
+						    <th>customer Name</th> 
+						    <th>customer email</th> 
+						    <th>customer contact</th> 
+						    <th>status</th>
+						    <th>status</th>
+						    </tr>  
+						<c:forEach items="${customers}" var="customer"> 
+						<tr> 
+						     <td><c:out value="${customer.id}"></c:out>
+						 </td> 
+						     <td><c:out value="${customer.name}"></c:out> 
+						</td> 
+						     <td><c:out value="${customer.email}"></c:out> 
+						</td>
+						      <td><c:out value="${customer.contact}"></c:out> 
+						</td> 
+						     <td><c:out value="${customer.active}"></c:out></td>
+						     <td><a href="<c:out value="${customer.id}"/>">edit</a></td> 
+						  </tr>  
+						</c:forEach>
+						</tbody>
+						 </table>  
+						</c:if>  
+                        <!-- <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+      </diV>
 </body>  
 </html>  

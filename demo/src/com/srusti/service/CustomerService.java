@@ -10,5 +10,7 @@ public interface CustomerService
 	void update(CustomerModel customer);
 	CustomerModel getCustomer(final int id);
 	List<CustomerModel> getCustomersList();
+	List<CustomerModel> getActiveCustomersList();
+	List<CustomerModel> getInActiveCustomersList();
 	void remove(final int id);
 }

@@ -9,6 +9,7 @@ public interface CustomerDao
 	void save(CustomerModel customer);
 	CustomerModel getCustomer(final int id);
 	List<CustomerModel> getCustomersList();
-	List<CustomerModel> getActiveCustomersList(boolean status);
+	List<CustomerModel> getActiveCustomersList();
+	List<CustomerModel> getInactiveCustomersList();
 	void remove(final int id);
 }

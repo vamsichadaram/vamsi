@@ -40,4 +40,16 @@ public class CustomerServiceImpl implements CustomerService
 		dao.remove(id);
 	}
 
+	@Override
+	public List<CustomerModel> getActiveCustomersList() 
+	{
+		return dao.getActiveCustomersList();
+	}
+
+	@Override
+	public List<CustomerModel> getInActiveCustomersList() 
+	{
+		return dao.getInactiveCustomersList();
+	}
+
 }
