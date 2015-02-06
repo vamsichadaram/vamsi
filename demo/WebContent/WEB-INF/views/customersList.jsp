@@ -43,7 +43,7 @@
 						      <td><c:out value="${customer.contact}"></c:out> 
 						</td> 
 						     <td><c:out value="${customer.active}"></c:out></td>
-						     <td><a href="<c:out value="${customer.id}"/>">edit</a></td> 
+						     <td><a href="<c:out value="/demo/customer/edit/${customer.id}"/>">edit</a></td> 
 						  </tr>  
 						</c:forEach>
 						</tbody>

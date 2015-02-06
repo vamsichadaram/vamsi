@@ -1,4 +1,20 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+ <link href="${pageContext.request.contextPath}/resources/css/main.css"
+	rel="stylesheet">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css" />
+	<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/simple-sidebar.css" />
+<script
+	src="${pageContext.request.contextPath}/resources/script/jquery-1.11.1.min.js"></script>
+<script
+	src="${pageContext.request.contextPath}/resources/script/bootstrap.min.js"></script>
+<div id="wrapper">
+ <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
 <form:form action="/demo/media/save" enctype="multipart/form-data"
 	modelattribute="mediaForm" method="POST">
 	<table>
@@ -28,3 +44,9 @@
 		</tr>
 	</table>
 </form:form>
+ </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+</div>

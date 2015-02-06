@@ -23,7 +23,7 @@
                     <a href="/demo/customer/list">customers</a>
                 </li>
                 <li>
-                    <a href="#">About</a>
+                    <a href="/demo/media/form">Add media</a>
                 </li>
                 <li>
                     <a href="#">Services</a>

@@ -27,6 +27,7 @@ public class CMSMediaController
 	private MediaService service;
 	@Autowired
 	private ServletContext context;
+	
 	@RequestMapping("/form")
 	public String mediaform(Model model)
 	{
@@ -49,12 +50,14 @@ public class CMSMediaController
 			{
 				fileName= mediaForm.getFile().getOriginalFilename();
 				LOG.info("uploading....."+fileName);
-				
+				File dir= new File(context.getRealPath(File.separator)+SampleCons.MEDIA_PATH);
 				File filedup= new File(context.getRealPath(File.separator)+SampleCons.MEDIA_PATH+fileName);
-				if(filedup.isDirectory())
+				//System.out.println(filedup);
+				if(dir.isDirectory())
 				{
+					LOG.info("uploading data "+mediaForm.getFile().getBytes().toString());
 					FileUtils.writeByteArrayToFile(filedup, mediaForm.getFile().getBytes());
-				}
+				}else LOG.info("directory does not exists");
 				if(filedup.exists())
 				{
 					model1.setPath(SampleCons.MEDIA_PATH+fileName);
