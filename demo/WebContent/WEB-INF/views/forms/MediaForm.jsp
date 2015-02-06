@@ -36,7 +36,7 @@
 		</tr>
 		<tr>
 			<td>Image</td>
-			<td><input type="file" name="file"></td>
+			<td><input type="file" name="file" multiple="multiple"></td>
 		</tr>
 		<tr>
 			<td></td>

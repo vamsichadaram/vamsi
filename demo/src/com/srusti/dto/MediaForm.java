@@ -1,5 +1,7 @@
 package com.srusti.dto;
 
+import java.util.List;
+
 import org.springframework.web.multipart.MultipartFile;
 
 
@@ -10,7 +12,7 @@ public class MediaForm
 	private String title;
 	private String alt;
 	private String decription;
-	private MultipartFile file;
+	private List<MultipartFile> file;
 	public int getId() {
 		return id;
 	}
@@ -41,10 +43,10 @@ public class MediaForm
 	public void setDecription(String decription) {
 		this.decription = decription;
 	}
-	public MultipartFile getFile() {
+	public List<MultipartFile> getFile() {
 		return file;
 	}
-	public void setFile(MultipartFile file) {
+	public void setFile(List<MultipartFile> file) {
 		this.file = file;
 	}
 	@Override
@@ -53,4 +55,5 @@ public class MediaForm
 				+ ", alt=" + alt + ", decription=" + decription + ", file="
 				+ file + "]";
 	}
+	
 }

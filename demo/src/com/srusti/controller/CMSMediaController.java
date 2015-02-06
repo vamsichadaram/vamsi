@@ -39,32 +39,35 @@ public class CMSMediaController
 	public void save(@ModelAttribute("mediaForm") MediaForm mediaForm) throws IOException
 	{
 		String fileName= null;
-		 if (mediaForm instanceof MediaForm) {
-			MediaForm media = (MediaForm) mediaForm;
-			MediaComponent model1= new MediaComponent();
-			model1.setName(media.getName());
-			model1.setAlt(media.getAlt());
-			model1.setDecription(media.getDecription());
-			model1.setTitle(media.getTitle());
-			if(mediaForm.getFile()!=null)
+		 if (mediaForm instanceof MediaForm) 
+		 {
+			if(mediaForm.getFile().size()>0)
 			{
-				fileName= mediaForm.getFile().getOriginalFilename();
-				LOG.info("uploading....."+fileName);
-				File dir= new File(context.getRealPath(File.separator)+SampleCons.MEDIA_PATH);
-				File filedup= new File(context.getRealPath(File.separator)+SampleCons.MEDIA_PATH+fileName);
-				//System.out.println(filedup);
-				if(dir.isDirectory())
+				MediaForm media = (MediaForm) mediaForm;
+				MediaComponent model1= new MediaComponent();
+				model1.setName(media.getName());
+				model1.setAlt(media.getAlt());
+				model1.setDecription(media.getDecription());
+				model1.setTitle(media.getTitle());
+				for(int i=0;i<mediaForm.getFile().size();i++)
 				{
-					LOG.info("uploading data "+mediaForm.getFile().getBytes().toString());
-					FileUtils.writeByteArrayToFile(filedup, mediaForm.getFile().getBytes());
-				}else LOG.info("directory does not exists");
-				if(filedup.exists())
-				{
-					model1.setPath(SampleCons.MEDIA_PATH+fileName);
-					service.save(model1);
-				}else LOG.info("cannot upload file: "+fileName);
-			}
-			else LOG.info("check the image.....");
+					fileName= mediaForm.getFile().get(i).getOriginalFilename();
+					LOG.info("uploading....."+fileName);
+					File dir= new File(context.getRealPath(File.separator)+SampleCons.MEDIA_PATH);
+					File filedup= new File(context.getRealPath(File.separator)+SampleCons.MEDIA_PATH+fileName);
+					//System.out.println(filedup);
+					if(dir.isDirectory())
+					{
+						LOG.info("uploading data "+mediaForm.getFile().get(i).getBytes().toString());
+						FileUtils.writeByteArrayToFile(filedup, mediaForm.getFile().get(i).getBytes());
+					}else LOG.info("directory does not exists");
+					if(filedup.exists())
+					{
+						model1.setPath(SampleCons.MEDIA_PATH+fileName);
+						service.save(model1);
+					}else LOG.info("cannot upload file: "+fileName);
+				}
+			}else LOG.info("check the image.....");
 			
 		}else LOG.info("Not done.....");
 	}
