@@ -24,7 +24,7 @@ public class CustomerDaoImpl implements CustomerDao
 	
 	public void save(CustomerModel customer) 
 	{
-		session.getCurrentSession().save(customer);
+		session.getCurrentSession().saveOrUpdate(customer);
 		LOG.info("Customer saved into database successfully.....");
 	}
 

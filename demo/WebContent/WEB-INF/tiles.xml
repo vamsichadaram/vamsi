@@ -19,13 +19,18 @@
 		<put-attribute name="title" value="customers list" />
 		<put-attribute name="body" value="/WEB-INF/views/customersList.jsp" />
 	</definition>
-	<definition name="customerForm" extends="base.definition">
+	<definition name="forms/customerForm" extends="base.definition">
 		<put-attribute name="title" value="add customer" />
-		<put-attribute name="body" value="/WEB-INF/views/customerForm.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/forms/customerForm.jsp" />
+	</definition>
+	
+	<definition name="customer" extends="base.definition">
+		<put-attribute name="title" value="add customer" />
+		<put-attribute name="body" value="/WEB-INF/views/customer.jsp" />
 	</definition>
 	
 	<definition name="forms/MediaForm" extends="base.definition">
-		<put-attribute name="title" value="add customer" />
+		<put-attribute name="title" value="add media" />
 		<put-attribute name="body" value="/WEB-INF/views/forms/MediaForm.jsp" />
 	</definition>
 </tiles-definitions>
