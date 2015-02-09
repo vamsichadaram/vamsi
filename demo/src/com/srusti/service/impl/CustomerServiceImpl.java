@@ -18,6 +18,7 @@ public class CustomerServiceImpl implements CustomerService
 	public void save(CustomerModel customer) 
 	{
 		dao.save(customer);
+		
 	}
 
 	public void update(CustomerModel customer) 

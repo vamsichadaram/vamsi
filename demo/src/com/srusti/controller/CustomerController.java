@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.srusti.model.CustomerModel;
 import com.srusti.service.CustomerService;
+import com.srusti.service.FolderService;
 
 @Controller
 @RequestMapping("/customer")
@@ -20,6 +21,8 @@ public class CustomerController
 {
 	@Autowired
 	private CustomerService service;
+	@Autowired
+	private FolderService folderService;
 	
 	@RequestMapping("/form")
 	public String cform(Model model)
@@ -31,7 +34,6 @@ public class CustomerController
 	public String edit(@PathVariable("id")int id,Model model)
 	{
 		CustomerModel customer= get(id);
-		System.out.println(customer.getId());
 		model.addAttribute("customers",customer);
 		return "customer";
 	}
@@ -50,6 +52,7 @@ public class CustomerController
 	public String save(CustomerModel customer)
 	{
 		service.save(customer);
+		folderService.createFolders(customer.getName(), customer.getCustomerid());
 		return "redirect:/customer/list";
 	}
 	@RequestMapping("/remove")

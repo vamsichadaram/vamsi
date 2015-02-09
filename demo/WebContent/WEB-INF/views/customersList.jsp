@@ -34,7 +34,7 @@
 						    </tr>  
 						<c:forEach items="${customers}" var="customer"> 
 						<tr> 
-						     <td><c:out value="${customer.id}"></c:out>
+						     <td><c:out value="${customer.customerid}"></c:out>
 						 </td> 
 						     <td><c:out value="${customer.name}"></c:out> 
 						</td> 
@@ -44,8 +44,8 @@
 						</td> 
 						     <td><c:out value="${customer.active}"></c:out></td>
 						     <td>
-						     	<a href="<c:out value="/demo/customer/edit/${customer.id}"/>">view</a>
-						     	<a href="<c:out value="/demo/customer/delete/${customer.id}"/>">delete</a>
+						     	<a href="<c:out value="/demo/customer/edit/${customer.customerid}"/>">view</a>
+						     	<a href="<c:out value="/demo/customer/delete/${customer.customerid}"/>">delete</a>
 						     </td> 
 						  </tr>  
 						</c:forEach>
