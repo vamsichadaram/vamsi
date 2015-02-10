@@ -2,6 +2,7 @@ package com.srusti.service.impl;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletContext;
 
@@ -52,5 +53,10 @@ public class PictureServiceImpl
 				}
 			}
 		}
+	}
+	
+	public List<PictureModel> getbyidcat(int customerid,String category)
+	{
+		return dao.getbyIdCategory(customerid, category);
 	}
 }

@@ -37,6 +37,11 @@
 							</table>
 						</form:form>                       
                         <!-- <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a> -->
+                        <c:if test="${!empty pictures}">
+                        	<c:forEach items="${pictures}" var="pic" >
+                        		<img src="${pageContext.request.contextPath}/resources/images/${pic}" />
+                        	</c:forEach>
+                        </c:if>
                     </div>
                 </div>
             </div>

@@ -28,6 +28,7 @@ public class PictureController
 		form.setCustomerid(customerid);
 		form.setCategory(category);
 		model.addAttribute("picture", form);
+		model.addAttribute("pictures", service.getbyidcat(customerid, category));
 		return "forms/pictureForm";
 	}
 	@RequestMapping(value="/save", method=RequestMethod.POST,headers = "content-type=multipart/*")
