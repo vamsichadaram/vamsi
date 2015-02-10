@@ -24,6 +24,8 @@ public class MediaServiceImpl implements MediaService
 	private ServletContext context;
 	@Autowired
 	private MediaDao dao;
+	private static final String SLASH= File.separator;
+	
 	public void save(MediaForm mediaform) throws IOException
 	{
 		String fileName= null;
@@ -37,8 +39,8 @@ public class MediaServiceImpl implements MediaService
 		{
 			fileName= mediaform.getFile().get(i).getOriginalFilename();
 			LOG.info("uploading....."+fileName);
-			File dir= new File(context.getRealPath(File.separator)+SampleCons.MEDIA_PATH);
-			File filedup= new File(context.getRealPath(File.separator)+SampleCons.MEDIA_PATH+fileName);
+			File dir= new File(context.getRealPath(SLASH)+SampleCons.MEDIA_PATH);
+			File filedup= new File(context.getRealPath(SLASH)+SampleCons.MEDIA_PATH+fileName);
 			if(dir.isDirectory())
 			{
 				LOG.info("uploading data "+mediaform.getFile().get(i).getBytes().toString());

@@ -1,4 +1,4 @@
-package com.srusti.service;
+package com.srusti.service.impl;
 
 import java.io.File;
 
@@ -24,11 +24,12 @@ public class FolderService
 		if(!file.exists())
 		{
 			LOG.info("creating media folders to the "+name+" customer");
-			LOG.info(context.getContextPath()+File.separator+temp1+" wedding");
 			File file1= new File(context.getRealPath(File.separator)+temp1);
 			file1.mkdir();
-			File file2= new File(context.getRealPath(File.separator)+temp1);
-			file2.mkdir();
+			File wedding= new File(context.getRealPath(File.separator)+temp1+File.separator+"wedding");
+			wedding.mkdir();
+			File bday= new File(context.getRealPath(File.separator)+temp1+File.separator+"birthday");
+			bday.mkdir();
 		}
 		else
 		{

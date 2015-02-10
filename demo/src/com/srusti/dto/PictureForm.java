@@ -4,34 +4,30 @@ import java.util.List;
 
 import org.springframework.web.multipart.MultipartFile;
 
-import com.srusti.model.CustomerModel;
 
 public class PictureForm 
 {
-	private int id;
-	private CustomerModel model;
+	private int customerid;
+	private String category;
 	private List<MultipartFile> files;
-	public int getId() {
-		return id;
+	
+	public String getCategory() {
+		return category;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setCategory(String category) {
+		this.category = category;
 	}
-	public CustomerModel getModel() {
-		return model;
+	
+	public int getCustomerid() {
+		return customerid;
 	}
-	public void setModel(CustomerModel model) {
-		this.model = model;
+	public void setCustomerid(int customerid) {
+		this.customerid = customerid;
 	}
 	public List<MultipartFile> getFiles() {
 		return files;
 	}
 	public void setFiles(List<MultipartFile> files) {
 		this.files = files;
-	}
-	@Override
-	public String toString() {
-		return "PictureForm [id=" + id + ", model=" + model + ", files="
-				+ files + "]";
 	}
 }

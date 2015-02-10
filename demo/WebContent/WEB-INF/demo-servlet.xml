@@ -56,7 +56,7 @@
 	<!-- database configuuration -->
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="driverClassName" value="org.hsqldb.jdbcDriver" />
-		<property name="url" value="jdbc:hsqldb:file:srusti" />
+		<property name="url" value="jdbc:hsqldb:file:srustidb" />
 		<property name="username" value="SA" />
 		<property name="password" value="" />
 		<property name="initialSize" value="1" />

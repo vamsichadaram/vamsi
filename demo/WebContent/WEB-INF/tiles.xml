@@ -33,4 +33,12 @@
 		<put-attribute name="title" value="add media" />
 		<put-attribute name="body" value="/WEB-INF/views/forms/MediaForm.jsp" />
 	</definition>
+	<definition name="forms/categoryForm" extends="base.definition">
+		<put-attribute name="title" value="add media" />
+		<put-attribute name="body" value="/WEB-INF/views/forms/categoryForm.jsp" />
+	</definition>
+	<definition name="forms/pictureForm" extends="base.definition">
+		<put-attribute name="title" value="add media" />
+		<put-attribute name="body" value="/WEB-INF/views/forms/pictureForm.jsp" />
+	</definition>
 </tiles-definitions>

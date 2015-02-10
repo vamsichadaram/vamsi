@@ -13,7 +13,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.srusti.model.CustomerModel;
 import com.srusti.service.CustomerService;
-import com.srusti.service.FolderService;
+import com.srusti.service.impl.CategoryService;
+import com.srusti.service.impl.FolderService;
 
 @Controller
 @RequestMapping("/customer")
@@ -23,6 +24,8 @@ public class CustomerController
 	private CustomerService service;
 	@Autowired
 	private FolderService folderService;
+	@Autowired
+	private CategoryService categoryService;
 	
 	@RequestMapping("/form")
 	public String cform(Model model)
@@ -35,6 +38,7 @@ public class CustomerController
 	{
 		CustomerModel customer= get(id);
 		model.addAttribute("customers",customer);
+		model.addAttribute("categories", categoryService.list());
 		return "customer";
 	}
 	@RequestMapping("/delete/{id}")
