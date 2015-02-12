@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.srusti.dto.CustomerForm;
+import com.srusti.dto.LoginForm;
 import com.srusti.model.CustomerModel;
 import com.srusti.service.CustomerService;
 import com.srusti.service.impl.CategoryService;
@@ -22,15 +24,22 @@ public class CustomerController
 {
 	@Autowired
 	private CustomerService service;
-	@Autowired
-	private FolderService folderService;
+	
 	@Autowired
 	private CategoryService categoryService;
 	
 	@RequestMapping("/form")
 	public String cform(Model model)
 	{
+		model.addAttribute("customer", new CustomerForm());
+		model.addAttribute("loginform",new LoginForm());
 		return "forms/customerForm";
+	}
+	
+	@RequestMapping("/home")
+	public String customerhome()
+	{
+		return "";
 	}
 	
 	@RequestMapping("/edit/{id}")
@@ -53,10 +62,9 @@ public class CustomerController
 		return service.getCustomer(id);
 	}
 	@RequestMapping(value="/save", method=RequestMethod.POST)
-	public String save(CustomerModel customer)
+	public String save(CustomerForm customer)
 	{
 		service.save(customer);
-		folderService.createFolders(customer.getName(), customer.getCustomerid());
 		return "redirect:/customer/list";
 	}
 	@RequestMapping("/remove")

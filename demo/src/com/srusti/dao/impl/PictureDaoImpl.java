@@ -36,12 +36,10 @@ public class PictureDaoImpl
 	public List<PictureModel> getbyIdCategory(int customerid,String category)
 	{
 		CustomerModel customer=service.getCustomer(customerid);
-		String query="From PictureModel where customer:customer and category:category";
-		/*Criteria crit= session.getCurrentSession().createCriteria("From PictureModel");
+		Criteria crit= session.getCurrentSession().createCriteria(PictureModel.class);
+		crit.add(Restrictions.eq("category", category));
 		crit.add(Restrictions.eq("customer", customer));
-		crit.add(Restrictions.eq("category",category));
-		List<PictureModel> pictures= crit.list();*/
-		List<PictureModel> pictures=session.getCurrentSession().createQuery(query).setParameter("customer", customer).setParameter("category", category).list();
+		List<PictureModel> pictures= crit.list();
 		if(pictures.size()>0)
 		{
 			return pictures;
