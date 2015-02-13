@@ -1,18 +1,20 @@
-package com.srusti.service.impl;
+/*package com.srusti.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
+
 
 import com.srusti.dao.impl.LoginDao;
 import com.srusti.dto.LoginForm;
 
-@Service
+@Component
 public class LoginService 
 {
 	@Autowired
-	private LoginDao doa;
+	private LoginDao loginDao;
 	public LoginForm check(LoginForm form)
 	{
-        form=doa.check(form); 
+        form=loginDao.check(form); 
 		return form;
 	}
 }
+*/

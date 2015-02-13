@@ -1,4 +1,4 @@
-package com.srusti.dao.impl;
+/*package com.srusti.dao.impl;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -8,13 +8,15 @@ import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.srusti.dto.LoginForm;
 import com.srusti.model.LoginModel;
 
 
-@Repository
+@Component
+@Transactional
 public class LoginDao 
 {
 	@Autowired
@@ -63,3 +65,4 @@ public class LoginDao
 				return login;
 	}
 }
+*/

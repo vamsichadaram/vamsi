@@ -1,4 +1,4 @@
-package com.srusti.controller;
+/*package com.srusti.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -6,15 +6,15 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.srusti.dao.impl.LoginDao;
 import com.srusti.dto.LoginForm;
+import com.srusti.service.impl.LoginService;
 
 @Controller
 @RequestMapping("/login")
 public class LoginPageController 
 {
 	@Autowired
-	private LoginDao loginDao;
+	private LoginService loginService;
 	@RequestMapping("/form")
 	public String login(Model model)
 	{
@@ -24,7 +24,7 @@ public class LoginPageController
 	@RequestMapping(value="/form", method=RequestMethod.POST)
 	public String login2(LoginForm login)
 	{
-		LoginForm checked=loginDao.check(login);
+		LoginForm checked=loginService.check(login);
 		if(checked.isSuccess())
 		{
 			if(checked.isUser())
@@ -35,3 +35,4 @@ public class LoginPageController
 		return "loginForm";
 	}
 }
+*/
