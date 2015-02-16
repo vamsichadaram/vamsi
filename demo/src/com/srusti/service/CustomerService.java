@@ -1,8 +1,10 @@
 package com.srusti.service;
 
+import java.io.IOException;
 import java.util.List;
 
 import com.srusti.dto.CustomerForm;
+/*import com.srusti.dto.CustomerForm;*/
 import com.srusti.model.CustomerModel;
 
 public interface CustomerService 
@@ -13,5 +15,5 @@ public interface CustomerService
 	List<CustomerModel> getCustomersList();
 	List<CustomerModel> getActiveCustomersList();
 	List<CustomerModel> getInActiveCustomersList();
-	void remove(final int id);
+	void remove(final int id) throws IOException;
 }

@@ -32,12 +32,13 @@ public class PictureController
 		return "forms/pictureForm";
 	}
 	@RequestMapping(value="/save", method=RequestMethod.POST,headers = "content-type=multipart/*")
-	public void save(@RequestParam("customerid")int customerid,@RequestParam("category")String category,@RequestParam("files")List<MultipartFile> files) throws IOException
+	public String save(@RequestParam("customerid")int customerid,@RequestParam("category")String category,@RequestParam("files")List<MultipartFile> files) throws IOException
 	{
 		PictureForm pictureForm= new PictureForm();
 		pictureForm.setCustomerid(customerid);
 		pictureForm.setCategory(category);
 		pictureForm.setFiles(files);
 		service.save(pictureForm);
+		return "redirect:/picture/form/"+customerid+"/"+category+"";
 	}
 }

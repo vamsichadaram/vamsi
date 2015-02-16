@@ -1,5 +1,6 @@
 package com.srusti.controller;
 
+import java.io.IOException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,11 +13,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.srusti.dto.CustomerForm;
-import com.srusti.dto.LoginForm;
 import com.srusti.model.CustomerModel;
 import com.srusti.service.CustomerService;
 import com.srusti.service.impl.CategoryService;
-import com.srusti.service.impl.FolderService;
 
 @Controller
 @RequestMapping("/customer")
@@ -32,7 +31,6 @@ public class CustomerController
 	public String cform(Model model)
 	{
 		model.addAttribute("customer", new CustomerForm());
-		model.addAttribute("loginform",new LoginForm());
 		return "forms/customerForm";
 	}
 	
@@ -51,8 +49,9 @@ public class CustomerController
 		return "customer";
 	}
 	@RequestMapping("/delete/{id}")
-	public String delete(@PathVariable("id")int id,Model model)
+	public String delete(@PathVariable("id")int id,Model model) throws IOException
 	{
+		
 		service.remove(id);
 		return "redirect:/customer/list";
 	}
@@ -68,7 +67,7 @@ public class CustomerController
 		return "redirect:/customer/list";
 	}
 	@RequestMapping("/remove")
-	public void remove(@RequestParam("id") int id)
+	public void remove(@RequestParam("id") int id) throws IOException
 	{
 		service.remove(id);
 	}
@@ -88,7 +87,6 @@ public class CustomerController
 	@ResponseBody
 	public List<CustomerModel> inActivelist(Model model)
 	{
-		//model.addAttribute("customers",service.getCustomersList());
 		return service.getCustomersList();
 	}
 }

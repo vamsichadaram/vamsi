@@ -7,7 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -26,12 +25,13 @@ public class CustomerModel
 	private String email;
 	@Column
 	private boolean active;
+	@Column
+	private String username;
+	@Column
+	private String password;
 	
 	@OneToMany(mappedBy="customer")
 	private Set<PictureModel> pictures;
-	
-	@OneToOne(mappedBy="customer")
-	private LoginModel loginModel;
 	
 	public int getCustomerid() {
 		return customerid;
@@ -69,11 +69,17 @@ public class CustomerModel
 	public void setPictures(Set<PictureModel> pictures) {
 		this.pictures = pictures;
 	}
-	public LoginModel getLoginModel() {
-		return loginModel;
+	public String getUsername() {
+		return username;
 	}
-	public void setLoginModel(LoginModel loginModel) {
-		this.loginModel = loginModel;
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	
 }

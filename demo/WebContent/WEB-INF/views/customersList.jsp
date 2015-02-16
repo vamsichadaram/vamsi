@@ -28,7 +28,8 @@
 						    <th>customer ID</th> 
 						    <th>customer Name</th> 
 						    <th>customer email</th> 
-						    <th>customer contact</th> 
+						    <th>customer contact</th>
+						    <th>username</th> 
 						    <th>status</th>
 						    <th>status</th>
 						    </tr>  
@@ -42,8 +43,11 @@
 						</td>
 						      <td><c:out value="${customer.contact}"></c:out> 
 						</td> 
-						     <td><c:out value="${customer.active}"></c:out></td>
-						     <td>
+						      <td><c:out value="${customer.username}"></c:out> 
+						</td> 
+						<td>
+						     <c:out value="${customer.active}"></c:out></td>
+						<td>
 						     	<a href="<c:out value="/demo/customer/edit/${customer.customerid}"/>">view</a>
 						     	<a href="<c:out value="/demo/customer/delete/${customer.customerid}"/>">delete</a>
 						     </td> 

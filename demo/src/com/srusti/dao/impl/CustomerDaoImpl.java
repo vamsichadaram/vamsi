@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.srusti.dao.CustomerDao;
 import com.srusti.model.CustomerModel;
+import com.srusti.service.impl.FolderService;
 
 @Repository
 @Transactional
@@ -21,6 +22,8 @@ public class CustomerDaoImpl implements CustomerDao
 	
 	@Autowired
 	private SessionFactory session;
+	@Autowired
+	private FolderService folderService;
 	
 	public void save(CustomerModel customer) 
 	{

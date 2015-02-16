@@ -59,4 +59,9 @@ public class PictureServiceImpl
 	{
 		return dao.getbyIdCategory(customerid, category);
 	}
+	
+	public void removeByCustomer(int customerid)
+	{
+		dao.removeByCustomer(customerid);
+	}
 }

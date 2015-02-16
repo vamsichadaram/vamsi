@@ -24,15 +24,7 @@ public class LoginModel
 	@OneToOne
 	@JoinColumn(name="customer_id")
 	private CustomerModel customer;
-	
-	public LoginModel(int id,String username,String password,String role,CustomerModel customer)
-	{
-		this.id=id;
-		this.username= username;
-		this.password= password;
-		this.role= role;
-		this.customer= customer;
-	}
+
 	public int getId() {
 		return id;
 	}

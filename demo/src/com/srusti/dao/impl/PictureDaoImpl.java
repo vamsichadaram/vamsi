@@ -46,4 +46,17 @@ public class PictureDaoImpl
 		}
 		return Collections.EMPTY_LIST;
 	}
+	
+	@SuppressWarnings("unchecked")
+	public void removeByCustomer(int customerid)
+	{
+		CustomerModel customer=service.getCustomer(customerid);
+		Criteria crit= session.getCurrentSession().createCriteria(PictureModel.class);
+		crit.add(Restrictions.eq("customer", customer));
+		List<PictureModel> pictures= crit.list();
+		for(PictureModel picture:pictures)
+		{
+			session.getCurrentSession().delete(picture);
+		}
+	}
 }
