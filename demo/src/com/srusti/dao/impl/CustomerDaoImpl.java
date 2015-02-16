@@ -1,5 +1,7 @@
 package com.srusti.dao.impl;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -10,8 +12,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.srusti.dao.CustomerDao;
 import com.srusti.model.CustomerModel;
-
-import java.util.*;
 
 @Repository
 @Transactional
@@ -33,7 +33,18 @@ public class CustomerDaoImpl implements CustomerDao
 		LOG.info("Getting customer with the id= "+id);
 		return (CustomerModel) session.getCurrentSession().get(CustomerModel.class,id);
 	}
-
+	
+	@Override
+	@SuppressWarnings("unchecked")
+	public CustomerModel getCustomer(String username)
+	{
+		List<CustomerModel> customers= new ArrayList<CustomerModel>();
+		customers= session.getCurrentSession().createQuery("from LoginModel where username=?").setParameter(0, username).list();
+		if(customers.size()>0)
+		{
+			return customers.get(0);
+		}else return null;
+	}
 	@SuppressWarnings("unchecked")
 	public List<CustomerModel> getCustomersList() 
 	{

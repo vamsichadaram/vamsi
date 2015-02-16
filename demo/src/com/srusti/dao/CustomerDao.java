@@ -1,5 +1,4 @@
 package com.srusti.dao;
-
 import java.util.List;
 
 import com.srusti.model.CustomerModel;
@@ -12,4 +11,5 @@ public interface CustomerDao
 	List<CustomerModel> getActiveCustomersList();
 	List<CustomerModel> getInactiveCustomersList();
 	void remove(final int id);
+	public CustomerModel getCustomer(String username);
 }

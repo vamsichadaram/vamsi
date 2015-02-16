@@ -96,7 +96,5 @@
 	<bean id="multipartResolver"    class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
         <property name="maxUploadSize" value="2097152" />
     </bean>
-    
-   <!--  <bean id="loginDao" class="com.srusti.dao.impl.LoginDao">
-    </bean> -->
+
 </beans>

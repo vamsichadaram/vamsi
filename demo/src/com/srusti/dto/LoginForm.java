@@ -7,6 +7,13 @@ public class LoginForm
 	private boolean user;
 	private boolean success;
 	
+	public LoginForm(String username,String password,boolean user,boolean success)
+	{
+		this.username= username;
+		this.password= password;
+		this.user= user;
+		this.success=success;
+	}
 	public boolean isSuccess() {
 		return success;
 	}
