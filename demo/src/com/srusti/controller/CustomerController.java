@@ -80,13 +80,13 @@ public class CustomerController
 	@RequestMapping("/active")
 	public String activelist(Model model)
 	{
-		model.addAttribute("customers",service.getCustomersList());
+		model.addAttribute("customers",service.getActiveCustomersList());
 		return "customersList";
 	}
 	@RequestMapping(value="/inactive", produces="application/json")
-	@ResponseBody
-	public List<CustomerModel> inActivelist(Model model)
+	public String inActivelist(Model model)
 	{
-		return service.getCustomersList();
+		model.addAttribute("customers",service.getInActiveCustomersList());
+		return "customersList";
 	}
 }
