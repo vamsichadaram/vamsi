@@ -31,6 +31,13 @@
 								<td><input type="text" name="contact" value="${customers.contact}"/></td>
 							</tr>
 							<tr>
+								<td><span>Username</span></td>
+								<td><input type="text" name="username" value="${customers.username}" placeholder="Customer username"/></td>
+							</tr>
+							<tr>
+								<td><input type="hidden" name="password" value="${customers.password}" placeholder="Customer password"/></td>
+							</tr>
+							<tr>
 								<td></td>
 								<td><input type="submit" value="submit"></td>
 							</tr>

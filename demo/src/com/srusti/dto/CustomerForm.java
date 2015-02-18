@@ -3,12 +3,20 @@ package com.srusti.dto;
 
 public class CustomerForm 
 {
+	private int customerid;
 	private String name;
 	private String contact;
 	private String email;
 	private boolean active;
 	private String username;
 	private String password;
+	
+	public int getCustomerid() {
+		return customerid;
+	}
+	public void setCustomerid(int customerid) {
+		this.customerid = customerid;
+	}
 	public String getName() {
 		return name;
 	}
