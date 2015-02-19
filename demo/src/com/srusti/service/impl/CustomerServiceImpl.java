@@ -38,6 +38,7 @@ public class CustomerServiceImpl implements CustomerService
 		customerModel.setName(customer.getName());
 		customerModel.setUsername(customer.getUsername());
 		customerModel.setPassword(customer.getPassword());
+		customerModel.setRole("user");
 		dao.save(customerModel);
 		folderService.createFolders(customer.getUsername(), customerModel.getCustomerid());
 	}

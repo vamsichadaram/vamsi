@@ -5,7 +5,9 @@ import java.util.Collections;
 import java.util.List;
 
 import org.apache.log4j.Logger;
+import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -89,5 +91,19 @@ public class CustomerDaoImpl implements CustomerDao
 		}
 		return Collections.EMPTY_LIST;
 	}
-
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public CustomerModel getCustomer(CustomerModel customer)
+	{
+		Criteria crit= session.getCurrentSession().createCriteria(CustomerModel.class);
+		crit.add(Restrictions.eq("username", customer.getUsername()));
+		crit.add(Restrictions.eq("password", customer.getPassword()));
+		List<CustomerModel> customers= crit.list();
+		if(customers.size()>0)
+		{
+			return customers.get(0);
+		}
+		else return null;
+	}
 }

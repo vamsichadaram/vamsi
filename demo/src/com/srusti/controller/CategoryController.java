@@ -1,9 +1,13 @@
 package com.srusti.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.srusti.model.CategoryModel;
 import com.srusti.service.impl.CategoryService;
@@ -23,8 +27,8 @@ public class CategoryController
 		return "forms/categoryForm";
 	}
 	
-	@RequestMapping("/save")
-	public String save(CategoryModel model)
+	@RequestMapping(value="/save")
+	public String save(@ModelAttribute("category") @Valid CategoryModel model)
 	{
 		service.add(model);
 		return "forms/categoryForm";

@@ -27,19 +27,18 @@ public class CustomerController
 	@Autowired
 	private CategoryService categoryService;
 	
+	@RequestMapping("/home")
+	public String home()
+	{
+		return "customerHome";
+	}
+	
 	@RequestMapping("/form")
 	public String cform(Model model)
 	{
 		model.addAttribute("customer", new CustomerForm());
 		return "forms/customerForm";
 	}
-	
-	@RequestMapping("/home")
-	public String customerhome()
-	{
-		return "";
-	}
-	
 	@RequestMapping("/edit/{id}")
 	public String edit(@PathVariable("id")int id,Model model)
 	{

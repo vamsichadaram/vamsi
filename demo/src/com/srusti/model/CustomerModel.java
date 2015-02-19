@@ -29,7 +29,8 @@ public class CustomerModel
 	private String username;
 	@Column
 	private String password;
-	
+	@Column
+	private String role;
 	@OneToMany(mappedBy="customer")
 	private Set<PictureModel> pictures;
 	
@@ -80,6 +81,12 @@ public class CustomerModel
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	public String getRole() {
+		return role;
+	}
+	public void setRole(String role) {
+		this.role = role;
 	}
 	
 }

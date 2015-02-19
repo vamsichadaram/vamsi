@@ -13,4 +13,5 @@ public interface CustomerDao
 	List<CustomerModel> getInactiveCustomersList();
 	void remove(final int id);
 	public CustomerModel getCustomer(String username);
+	public CustomerModel getCustomer(CustomerModel customer);
 }

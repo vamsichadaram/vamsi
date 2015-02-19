@@ -35,11 +35,19 @@
 		<put-attribute name="body" value="/WEB-INF/views/forms/MediaForm.jsp" />
 	</definition>
 	<definition name="forms/categoryForm" extends="base.definition">
-		<put-attribute name="title" value="add media" />
+		<put-attribute name="title" value="category" />
 		<put-attribute name="body" value="/WEB-INF/views/forms/categoryForm.jsp" />
 	</definition>
 	<definition name="forms/pictureForm" extends="base.definition">
 		<put-attribute name="title" value="add media" />
 		<put-attribute name="body" value="/WEB-INF/views/forms/pictureForm.jsp" />
+	</definition>
+	<definition name="loginForm" extends="base.definition">
+		<put-attribute name="title" value="login" />
+		<put-attribute name="body" value="/WEB-INF/views/forms/loginForm.jsp" />
+	</definition>
+	<definition name="customerHome" extends="base.definition">
+		<put-attribute name="title" value="customer home page" />
+		<put-attribute name="body" value="/WEB-INF/views/customerHome.jsp" />
 	</definition>
 </tiles-definitions>
