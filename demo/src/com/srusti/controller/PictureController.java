@@ -41,4 +41,11 @@ public class PictureController
 		service.save(pictureForm);
 		return "redirect:/picture/form/"+customerid+"/"+category+"";
 	}
+	
+	@RequestMapping(value="/delete/{id}/{customerid}/{category}")
+	public String remove(@PathVariable("id") int id,@PathVariable("customerid") int customerid,@PathVariable("category") String category)
+	{
+		service.removeById(id);
+		return "redirect:/picture/form/"+customerid+"/"+category;
+	}
 }

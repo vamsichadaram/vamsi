@@ -48,7 +48,7 @@ public class PictureServiceImpl
 					PictureModel model= new PictureModel();
 					model.setCategory(form.getCategory());
 					model.setCustomer(customer);
-					model.setPath(customer.getName()+"_"+customer.getCustomerid()+SLASH+form.getCategory()+SLASH+fileName);
+					model.setPath(customer.getName()+"_"+customer.getCustomerid()+"/"+form.getCategory()+"/"+fileName);
 					dao.save(model);
 				}
 			}
@@ -63,5 +63,10 @@ public class PictureServiceImpl
 	public void removeByCustomer(int customerid)
 	{
 		dao.removeByCustomer(customerid);
+	}
+	
+	public void removeById(int id)
+	{
+		dao.removeById(id);
 	}
 }

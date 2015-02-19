@@ -59,4 +59,10 @@ public class PictureDaoImpl
 			session.getCurrentSession().delete(picture);
 		}
 	}
+	
+	public void removeById(int id)
+	{
+		PictureModel picture= (PictureModel) session.getCurrentSession().get(PictureModel.class, id);
+		session.getCurrentSession().delete(picture);
+	}
 }
